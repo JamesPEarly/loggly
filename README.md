@@ -2,6 +2,8 @@
 A Go (Golang) package for communicating with Loggly using user credentials
 
 ## Setup
+This package expects an environment variable called `LOGGLY_TOKEN` to be assigned a value corresponding to the Customer Token provided by Loggly. This can be found in the Source Setup under the Customer Tokens tab.
+
 In order to include this package in your Go application, you must import it as follows
 ```
 import loggly "github.com/jamespearly/loggly"
