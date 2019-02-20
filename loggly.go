@@ -34,14 +34,17 @@ type messageType struct {
 
 // New instantiates a new Loggly client using the
 // tag provided by the caller
-func New(tag string) *ClientType {
-
-	token := os.Getenv("LOGGLY_TOKEN")
+func New(tag string) (*ClientType,error) {
+	val,exist := os.LookupEnv("LOGGLY_TOKEN")
+	if !exist{
+		return nil,errors.New("The Loggly Token wasn't passed.")
+	}
+	token := val
 	newClient := &ClientType{}
 	newClient.URL = logglyURL + token + "/tag/" + tag
 	newClient.Tag = tag
 
-	return newClient
+	return newClient,nil
 }
 
 // Send constructs and sends a message to loggly.
