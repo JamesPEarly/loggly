@@ -43,7 +43,7 @@ func New(tag string) *ClientType {
 	token := os.Getenv("LOGGLY_TOKEN")
 	if token == "" {
 		// Variable undefined
-		fmt.Print(color.Ize(color.Yellow, "WARNING: ")
+		fmt.Print(color.Ize(color.Yellow, "WARNING: "))
 		fmt.Println("LOGGLY_TOKEN environment variable undefined. No messages can be sent to Loggly")
 	}
 	newClient := &ClientType{}
