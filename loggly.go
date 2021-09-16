@@ -36,7 +36,12 @@ type messageType struct {
 // tag provided by the caller
 func New(tag string) *ClientType {
 
+	// Check for LOGGLY_TOKEN enviroment variable
 	token := os.Getenv("LOGGLY_TOKEN")
+	if token == "" {
+		// Variable undefined
+		log.Println("WARNING: LOGGLY_TOKEN environment variable undefined. No messages can be sent to Loggly")
+	}
 	newClient := &ClientType{}
 	newClient.URL = logglyURL + token + "/tag/" + tag
 	newClient.Tag = tag
