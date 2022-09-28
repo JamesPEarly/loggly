@@ -13,7 +13,7 @@ import (
 	"os"
 	"time"
 
-	color "github.com/TwinProduction/go-color"
+	color "github.com/TwiN/go-color"
 )
 
 // Loggly API URL
